@@ -442,7 +442,7 @@ class MockApiService {
       throw new Error('Booking not found');
     }
     
-    const updatedBooking = { ...mockBookings[bookingIndex], ...data };
+    const updatedBooking = { ...mockBookings[bookingIndex], ticketCount: data.ticketsCount };
     mockBookings[bookingIndex] = updatedBooking;
     return updatedBooking;
   }

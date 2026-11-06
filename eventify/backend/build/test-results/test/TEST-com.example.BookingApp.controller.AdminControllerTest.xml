@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.BookingApp.controller.AdminControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-06T12:13:03" hostname="zarinkins.local" time="0.191">
+  <properties/>
+  <testcase name="getAllBookings_ShouldReturnPage()" classname="com.example.BookingApp.controller.AdminControllerTest" time="0.111"/>
+  <testcase name="createEvent_ShouldReturnCreated()" classname="com.example.BookingApp.controller.AdminControllerTest" time="0.052"/>
+  <testcase name="confirmBooking_ShouldReturnOk()" classname="com.example.BookingApp.controller.AdminControllerTest" time="0.005"/>
+  <testcase name="confirmBooking_ShouldReturnNoContent()" classname="com.example.BookingApp.controller.AdminControllerTest" time="0.005"/>
+  <testcase name="deleteEvent_AsUser_ShouldReturnForbidden()" classname="com.example.BookingApp.controller.AdminControllerTest" time="0.004"/>
+  <testcase name="updateEvent_ShouldReturnUpdatedEvent()" classname="com.example.BookingApp.controller.AdminControllerTest" time="0.007"/>
+  <system-out><![CDATA[2026-11-06T15:13:03.148+03:00  INFO 87442 --- [eventify] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.BookingApp.controller.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-06T15:13:03.159+03:00  INFO 87442 --- [eventify] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.BookingApp.BookingAppApplication for test class com.example.BookingApp.controller.AdminControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.1)
+
+2026-11-06T15:13:03.173+03:00  INFO 87442 --- [eventify] [    Test worker] c.e.B.controller.AdminControllerTest     : Starting AdminControllerTest using Java 17.0.17 with PID 87442 (started by zarina in /Users/zarina/Desktop/skillbox/repositories/Eventify_app/eventify/backend)
+2026-11-06T15:13:03.173+03:00  INFO 87442 --- [eventify] [    Test worker] c.e.B.controller.AdminControllerTest     : The following 1 profile is active: "dev"
+2026-11-06T15:13:03.525+03:00  INFO 87442 --- [eventify] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-11-06T15:13:03.579+03:00  INFO 87442 --- [eventify] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-11-06T15:13:03.580+03:00  INFO 87442 --- [eventify] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-11-06T15:13:03.581+03:00  INFO 87442 --- [eventify] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-11-06T15:13:03.593+03:00  INFO 87442 --- [eventify] [    Test worker] c.e.B.controller.AdminControllerTest     : Started AdminControllerTest in 0.432 seconds (process running for 3.778)
+2026-11-06T15:13:03.659+03:00  WARN 87442 --- [eventify] [    Test worker] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

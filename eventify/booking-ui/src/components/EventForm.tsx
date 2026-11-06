@@ -8,6 +8,10 @@ import { apiService } from '../services/api';
 import { ArrowLeft, Save, Plus } from 'lucide-react';
 import toast from 'react-hot-toast';
 
+const toDateTimeInput = (value: string) => value.slice(0, 16);
+
+const toBackendLocalDateTime = (value: string) => value.length === 16 ? `${value}:00` : value;
+
 const schema = yup.object({
   title: yup.string().required('Название обязательно'),
   description: yup.string().required('Описание обязательно'),
@@ -52,7 +56,7 @@ const EventForm: React.FC<EventFormProps> = ({ mode }) => {
       reset({
         title: eventData.title,
         description: eventData.description,
-        dateTime: new Date(eventData.dateTime).toISOString().slice(0, 16),
+        dateTime: toDateTimeInput(eventData.dateTime),
         totalTickets: eventData.totalTickets,
         coverUrl: eventData.coverUrl,
       });
@@ -73,7 +77,7 @@ const EventForm: React.FC<EventFormProps> = ({ mode }) => {
         const createData: EventCreateRequest = {
           title: data.title,
           description: data.description,
-          dateTime: new Date(data.dateTime).toISOString(),
+          dateTime: toBackendLocalDateTime(data.dateTime),
           totalTickets: data.totalTickets,
           coverUrl: data.coverUrl,
         };
@@ -84,7 +88,7 @@ const EventForm: React.FC<EventFormProps> = ({ mode }) => {
         const updateData: EventUpdateRequest = {
           title: data.title,
           description: data.description,
-          dateTime: new Date(data.dateTime).toISOString(),
+          dateTime: toBackendLocalDateTime(data.dateTime),
           totalTickets: data.totalTickets,
           coverUrl: data.coverUrl,
         };

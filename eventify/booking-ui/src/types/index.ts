@@ -53,7 +53,7 @@ export interface CreateBookingRequest {
 }
 
 export interface BookingUpdateRequest {
-  ticketCount: number;
+  ticketsCount: number;
 }
 
 export interface EventCreateRequest {

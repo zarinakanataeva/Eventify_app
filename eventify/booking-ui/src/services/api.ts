@@ -23,7 +23,7 @@ class ApiService {
 
   constructor() {
     this.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
-    this.useMocks = false;
+    this.useMocks = process.env.REACT_APP_USE_MOCKS === 'true';
     
     if (this.useMocks) {
       console.log('🔧 Using mock API service for demonstration');
@@ -88,7 +88,9 @@ class ApiService {
       return mockApiService.getEvents(pageable, from, to);
     }
     const params = new URLSearchParams();
-    params.append('pageable', JSON.stringify(pageable));
+    params.append('page', String(pageable.page));
+    params.append('size', String(pageable.size));
+    (pageable.sort || []).forEach((sort) => params.append('sort', sort));
     if (from) params.append('from', from);
     if (to) params.append('to', to);
     
@@ -149,7 +151,7 @@ class ApiService {
     if (this.useMocks) {
       return mockApiService.updateBooking(id, data);
     }
-    const response = await this.api.put(`/bookings/${id}`, data);
+    const response = await this.api.put(`/bookings/${id}`, { ticketsCount: data.ticketsCount });
     return response.data;
   }
 
@@ -166,9 +168,11 @@ class ApiService {
       return mockApiService.getAdminBookings(pageable, eventId, unconfirmedOnly);
     }
     const params = new URLSearchParams();
-    params.append('pageable', JSON.stringify(pageable));
-    if (eventId) params.append('eventId', eventId.toString());
-    if (unconfirmedOnly !== undefined) params.append('unconfirmedOnly', unconfirmedOnly.toString());
+    params.append('page', String(pageable.page));
+    params.append('size', String(pageable.size));
+    (pageable.sort || []).forEach((sort) => params.append('sort', sort));
+    if (eventId !== undefined) params.append('eventId', eventId.toString());
+    if (unconfirmedOnly !== undefined) params.append('unconfirmed', unconfirmedOnly.toString());
     
     const response = await this.api.get(`/admin/bookings?${params}`);
     return response.data;

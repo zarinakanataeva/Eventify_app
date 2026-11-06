@@ -19,7 +19,10 @@ const EventList: React.FC = () => {
   const loadEvents = useCallback(async () => {
     try {
       setLoading(true);
-      const now = new Date().toISOString();
+      const currentDate = new Date();
+      const now = new Date(currentDate.getTime() - currentDate.getTimezoneOffset() * 60000)
+        .toISOString()
+        .slice(0, 19);
       const pageable: Pageable = {
         page: currentPage,
         size: pageSize,
